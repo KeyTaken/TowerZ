@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nos Réalisations</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-dark: #1a237e;
+        --primary-light: #534bae;
+        --secondary: #00bcd4;
+        --accent: #ff4081;
+        --dark-bg: #121212;
+        --card-bg: #1e1e1e;
+        --text-light: #f5f5f5;
+        --text-muted: #b0bec5;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        background: linear-gradient(
+          to right,
+          var(--primary-dark),
+          var(--primary-light)
+        );
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        padding: 15px 0;
+      }
+
+      .navbar-brand {
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: white !important;
+      }
+
+      .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin: 0 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: var(--secondary) !important;
+        transform: translateY(-2px);
+      }
+
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--secondary);
+        transition: width 0.3s ease;
+      }
+
+      .navbar-nav .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .section-title {
+        color: var(--secondary);
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        bottom: -10px;
+        left: 0;
+        background: linear-gradient(to right, var(--secondary), transparent);
+      }
+
+      /* Carousel amélioré */
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 0;
+      }
+
+      .carousel-track {
+        display: flex;
+        gap: 30px;
+        width: max-content;
+        animation: scroll 30s linear infinite;
+        will-change: transform;
+      }
+
+      .carousel-container:hover .carousel-track {
+        animation-play-state: paused;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Cards styling */
+      .project-card {
+        width: 400px;
+        height: 500px;
+        border-radius: 16px;
+        overflow: hidden;
+        background-color: var(--card-bg);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        position: relative;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-bottom: 3px solid var(--secondary);
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .card-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 250px);
+      }
+
+      .card-title {
+        color: var(--secondary);
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .card-text {
+        color: var(--text-muted);
+        flex-grow: 1;
+      }
+
+      /* Testimonials */
+      .testimonial-card {
+        background-color: var(--card-bg);
+        border-left: 4px solid var(--accent);
+        min-width: 300px;
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .blockquote-footer {
+        color: var(--accent) !important;
+      }
+
+      /* CTA Section */
+      .cta {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-light)
+        );
+        padding: 60px 0;
+        margin-top: 50px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+        background-size: cover;
+        opacity: 0.1;
+      }
+
+      .cta h3 {
+        font-weight: 600;
+        margin-bottom: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta button {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        font-weight: 600;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+      }
+
+      .cta button:hover {
+        background-color: #f50057;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--primary-dark);
+        color: white;
+        padding: 40px 0 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, var(--secondary), var(--accent));
+      }
+
+      footer a {
+        color: var(--secondary);
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .project-card {
+          width: 300px;
+          height: 450px;
+        }
+
+        .project-card img {
+          height: 200px;
+        }
+
+        .carousel-track {
+          gap: 20px;
+          animation-duration: 20s;
+        }
+
+        .navbar-brand {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Towerco</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#realisations"
+                >Nos Réalisations</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="doc3.html">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Membres</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section après la navbar -->
+    <section
+      class="towerco-hero"
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url('https://example.com/telecom-tower.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 5rem 1rem;
+        text-align: center;
+      "
+    >
+      <div class="container" style="max-width: 1200px; margin: 0 auto">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 700">
+          TOWERCO : L'INVESTISSEMENT TÉLÉCOM LE PLUS LUCRATIF DE L'OCÉAN INDIEN
+        </h1>
+        <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 2rem">
+          Infrastructures Résilientes pour une Connectivité Sans Frontières
+        </p>
+
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+          "
+        >
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              padding: 1.5rem;
+              border-radius: 8px;
+              flex: 1;
+              min-width: 250px;
+              max-width: 350px;
+              backdrop-filter: blur(5px);
+            "
+          >
+            <h3 style="color: #4fc3f7; margin-top: 0">
+              Implantations Privilégiées
+            </h3>
+            <p>
+              Sites urbains, périurbains et axes majeurs pour une couverture
+              optimale
+            </p>
+          </div>
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              padding: 1.5rem;
+              border-radius: 8px;
+              flex: 1;
+              min-width: 250px;
+              max-width: 350px;
+              backdrop-filter: blur(5px);
+            "
+          >
+            <h3 style="color: #4fc3f7; margin-top: 0">
+              Adaptées aux Défis Locaux
+            </h3>
+            <p>Tours résistantes aux conditions climatiques spécifiques</p>
+          </div>
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              padding: 1.5rem;
+              border-radius: 8px;
+              flex: 1;
+              min-width: 250px;
+              max-width: 350px;
+              backdrop-filter: blur(5px);
+            "
+          >
+            <h3 style="color: #4fc3f7; margin-top: 0">Évolutivité Garantie</h3>
+            <p>Compatibles 4G, 5G et futures technologies</p>
+          </div>
+        </div>
+
+        <a
+          href="#contact"
+          style="
+            display: inline-block;
+            background-color: #4fc3f7;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+          "
+          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(79, 195, 247, 0.4)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';"
+        >
+          Contactez-nous pour une étude de couverture →
+        </a>
+      </div>
+    </section>
+
+    <!-- Réalisations -->
+    <section id="realisations" class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center">Nos Réalisations</h2>
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section id="temoignages" class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center">Témoignages de nos clients</h2>
+        <div class="carousel-container">
+          <div class="carousel-track" id="testimonialTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+      <div class="container text-center">
+        <h3 class="mb-4">Vous avez un projet ? Parlons-en.</h3>
+        <button onclick="window.location.href='mailto:contact@monsitezen.com'">
+          Nous contacter
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Towerco. Tous droits réservés.</p>
+        <p class="mt-3">
+          <a href="#">Politique de confidentialité</a> |
+          <a href="#">Mentions légales</a> |
+          <a href="#">Conditions d'utilisation</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Projects data
+        const projects = [
+          {
+            img: "https://assets.virtusa.com/is/image/virtusa/etl-to-aws-hero-image",
+            title: "Infrastructure Fibre",
+            desc: "Mise en place complète de l'infrastructure fibre optique à La Réunion avec des débits record.",
+          },
+          {
+            img: "https://thaka.bing.com/th/id/OIP.ar8VOIIiD2gpMVKE-K8HtAHaLH?rs=1&pid=ImgDetMain",
+            title: "Serveurs Cloud",
+            desc: "Déploiement de serveurs virtualisés pour une PME locale avec migration transparente.",
+          },
+          {
+            img: "https://thaka.bing.com/th/id/OIP.VF9jJmwPNZLZiZGQ7lHhYgHaJ4?rs=1&pid=ImgDetMain",
+            title: "Datacenter Sécurisé",
+            desc: "Migration vers un datacenter Tier III avec redondance complète et sécurité maximale.",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1140045317/ko/%EC%82%AC%EC%A7%84/%EC%83%81%EC%8A%B9%EC%97%90%EC%84%9C-%EB%B0%A9%EC%86%A1-%EC%A4%91%EA%B3%84-%EB%B0%A9%EC%86%A1%EA%B5%AD-%EC%95%88%ED%85%8C%EB%82%98-%ED%86%B5%EC%8B%A0-%ED%83%91.jpg?s=170667a&w=0&k=20&c=D-CeBeBkPomYs5HyunXw2jXCC8LuNCwpFTgcvTJLWOA=",
+            title: "Réseau Entreprise",
+            desc: "Configuration avancée de routeurs Cisco pour un réseau haute performance.",
+          },
+          {
+            img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400",
+            title: "Wi-Fi Public",
+            desc: "Installation d'un réseau Wi-Fi public sécurisé avec authentification centralisée.",
+          },
+          {
+            img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400",
+            title: "VPN Inter-sites",
+            desc: "Mise en place d'un VPN sécurisé entre 5 sites distants avec QoS optimisée.",
+          },
+          {
+            img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400",
+            title: "Pare-feux",
+            desc: "Sécurisation réseau via pare-feux nouvelle génération Palo Alto.",
+          },
+          {
+            img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400",
+            title: "Cloud AWS",
+            desc: "Transition complète vers des services Cloud AWS avec optimisation des coûts.",
+          },
+        ];
+
+        // Testimonials data
+        const testimonials = [
+          {
+            text: "Un service au top ! Mon réseau n'a jamais été aussi rapide et stable depuis leur intervention.",
+            author: "Alice R.",
+            role: "Directrice Technique",
+          },
+          {
+            text: "L'équipe est très professionnelle et à l'écoute de nos besoins spécifiques. Je recommande vivement.",
+            author: "Karim B.",
+            role: "CEO Startup",
+          },
+          {
+            text: "Super accompagnement du début à la fin. Ils ont su comprendre nos enjeux et proposer des solutions adaptées.",
+            author: "Julie M.",
+            role: "Responsable IT",
+          },
+          {
+            text: "Réactivité et expertise au rendez-vous. Un partenaire de confiance pour nos infrastructures critiques.",
+            author: "Thomas L.",
+            role: "DSI Groupe",
+          },
+          {
+            text: "Migration cloud réalisée sans aucun temps d'arrêt. Impressionnant !",
+            author: "Sophie D.",
+            role: "Responsable Production",
+          },
+        ];
+
+        // Generate project cards
+        const carouselTrack = document.getElementById("carouselTrack");
+        const testimonialTrack = document.getElementById("testimonialTrack");
+
+        // Duplicate items for infinite loop effect
+        const duplicatedProjects = [...projects, ...projects];
+        const duplicatedTestimonials = [...testimonials, ...testimonials];
+
+        duplicatedProjects.forEach((project) => {
+          const card = document.createElement("div");
+          card.className = "project-card";
+          card.innerHTML = `
+            <img src="${project.img}" alt="${project.title}" class="img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">${project.title}</h5>
+              <p class="card-text">${project.desc}</p>
+            </div>
+          `;
+          carouselTrack.appendChild(card);
+        });
+
+        duplicatedTestimonials.forEach((testimonial) => {
+          const card = document.createElement("div");
+          card.className = "testimonial-card p-4";
+          card.innerHTML = `
+            <blockquote class="blockquote mb-0">
+              <p class="mb-3">"${testimonial.text}"</p>
+              <footer class="blockquote-footer mt-2">
+                <strong>${testimonial.author}</strong>, <cite>${testimonial.role}</cite>
+              </footer>
+            </blockquote>
+          `;
+          testimonialTrack.appendChild(card);
+        });
+
+        // Pause animation on hover
+        const carousels = document.querySelectorAll(".carousel-container");
+        carousels.forEach((carousel) => {
+          carousel.addEventListener("mouseenter", () => {
+            carousel.querySelector(".carousel-track").style.animationPlayState =
+              "paused";
+          });
+          carousel.addEventListener("mouseleave", () => {
+            carousel.querySelector(".carousel-track").style.animationPlayState =
+              "running";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membres TowerCo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+      body {
+        font-family: "Rubik", sans-serif;
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      h1,
+      h2 {
+        font-weight: 600;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+      .member-card {
+        background-color: #1e1e1e;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin: 1rem;
+        transition: transform 0.3s;
+      }
+      .member-card:hover {
+        transform: scale(1.05);
+      }
+      footer {
+        background-color: #0e0e0e;
+        color: #aaa;
+      }
+      footer a {
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center mt-5">
+      <h1 class="mb-4">Équipe TowerCo</h1>
+
+      <section class="row justify-content-center">
+        <div class="col-md-4 member-card sr-animated">
+          <h2>Jean Dupont</h2>
+          <p><strong>Fondateur & CEO</strong></p>
+          <p>
+            Expert en télécoms, responsable de la stratégie globale et des
+            partenariats clés.
+          </p>
+        </div>
+        <div class="col-md-4 member-card sr-animated">
+          <h2>Sarah Ali</h2>
+          <p><strong>CTO</strong></p>
+          <p>
+            Responsable de l'infrastructure technique et de la gestion des tours
+            mutualisées.
+          </p>
+        </div>
+        <div class="col-md-4 member-card sr-animated">
+          <h2>Louis Moreau</h2>
+          <p><strong>Responsable Financier</strong></p>
+          <p>
+            En charge de la gestion budgétaire, du ROI et du financement des
+            projets.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5">
+      <p class="mb-1">&copy; 2025 TowerCo. Tous droits réservés.</p>
+      <a href="#">Politique de confidentialité</a>
+    </footer>
+
+    <!-- ScrollReveal animations -->
+    <script>
+      ScrollReveal().reveal(".sr-animated", {
+        delay: 200,
+        duration: 1000,
+        reset: true,
+        distance: "20px",
+        origin: "bottom",
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opportunité d'Investissement - TowerCo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #1e1e2f;
+        color: #f1f1f1;
+        padding-bottom: 100px;
+      }
+      .hero-section {
+        background: linear-gradient(135deg, #1a3a8f 0%, #0d1b3a 100%);
+        padding: 3rem;
+        border-radius: 15px;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      h1,
+      h2,
+      h3 {
+        color: #ffd700;
+        font-weight: 700;
+      }
+      h1 {
+        font-weight: 900;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .highlight {
+        background-color: rgba(255, 215, 0, 0.15);
+        border-left: 4px solid #ffd700;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 0 8px 8px 0;
+      }
+      .key-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffd700;
+        line-height: 1;
+      }
+      .key-fact {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: #2a2a3f;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      .section {
+        margin-top: 60px;
+        padding: 0 15px;
+      }
+      .chart-container {
+        background: #2a2a3f;
+        padding: 30px;
+        border-radius: 15px;
+        margin: 3rem 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+      .profit-badge {
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        background-color: #28a745;
+        border-radius: 50px;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+      .table-dark {
+        background-color: #2a2a3f;
+      }
+      .table-dark th {
+        background-color: #1a1a2e;
+        color: #ffd700;
+      }
+      footer {
+        background-color: #111;
+        color: #ccc;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .cta-button {
+        background-color: #ffd700;
+        color: #1a1a2e;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1rem;
+        transition: all 0.3s;
+        border: none;
+      }
+      .cta-button:hover {
+        background-color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+      }
+      /* Style pour la navbar */
+      .navbar-custom {
+        background-color: #1a1a2e;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+      .navbar-custom .navbar-brand,
+      .navbar-custom .nav-link {
+        color: #f1f1f1;
+        font-weight: 600;
+      }
+      .navbar-custom .nav-link:hover {
+        color: #ffd700;
+      }
+      .navbar-custom .navbar-toggler {
+        border-color: rgba(255, 215, 0, 0.5);
+      }
+      .navbar-custom .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 215, 0, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+    </style>
+  </head>
+  <body class="container py-5">
+    <!-- Navbar ajoutée ici -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom mb-5 rounded">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <span style="color: #ffd700; font-weight: 700">TOWERCO</span> INVEST
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#opportunite">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#financier">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Membres</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SECTION COPIÉE DU DEUXIÈME SITE (entre navbar et témoignages) -->
+    <section
+      class="towerco-hero"
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url('https://example.com/telecom-tower.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 5rem 1rem;
+        text-align: center;
+      "
+    >
+      <div class="container" style="max-width: 1200px; margin: 0 auto">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 700">
+          TOWERCO : L'INVESTISSEMENT TÉLÉCOM LE PLUS LUCRATIF DE L'OCÉAN INDIEN
+        </h1>
+        <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 2rem">
+          Infrastructures Résilientes pour une Connectivité Sans Frontières
+        </p>
+
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+          "
+        >
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              padding: 1.5rem;
+              border-radius: 8px;
+              flex: 1;
+              min-width: 250px;
+              max-width: 350px;
+              backdrop-filter: blur(5px);
+            "
+          >
+            <h3 style="color: #4fc3f7; margin-top: 0">
+              Implantations Privilégiées
+            </h3>
+            <p>
+              Sites urbains, périurbains et axes majeurs pour une couverture
+              optimale
+            </p>
+          </div>
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              padding: 1.5rem;
+              border-radius: 8px;
+              flex: 1;
+              min-width: 250px;
+              max-width: 350px;
+              backdrop-filter: blur(5px);
+            "
+          >
+            <h3 style="color: #4fc3f7; margin-top: 0">
+              Adaptées aux Défis Locaux
+            </h3>
+            <p>Tours résistantes aux conditions climatiques spécifiques</p>
+          </div>
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              padding: 1.5rem;
+              border-radius: 8px;
+              flex: 1;
+              min-width: 250px;
+              max-width: 350px;
+              backdrop-filter: blur(5px);
+            "
+          >
+            <h3 style="color: #4fc3f7; margin-top: 0">Évolutivité Garantie</h3>
+            <p>Compatibles 4G, 5G et futures technologies</p>
+          </div>
+        </div>
+
+        <a
+          href="#contact"
+          style="
+            display: inline-block;
+            background-color: #4fc3f7;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+          "
+          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(79, 195, 247, 0.4)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';"
+        >
+          Contactez-nous pour une étude de couverture →
+        </a>
+      </div>
+    </section>
+
+    <!-- FIN DE LA SECTION COPIÉE -->
+
+    <div class="hero-section">
+      <h1>
+        TOWERZ : L'INVESTISSEMENT TÉLÉCOM LE PLUS LUCRATIF DE L'OCÉAN INDIEN
+      </h1>
+      <p class="lead" style="font-size: 1.3rem">
+        Infrastructures mutualisées - ROI exceptionnel - Revenus récurrents
+        garantis
+      </p>
+      <a href="#contact" class="cta-button">DEMANDER LE DOSSIER COMPLET</a>
+    </div>
+
+    <!-- Graphique intégré -->
+    <div class="chart-container">
+      <canvas id="financialChart"></canvas>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-md-4">
+        <div class="key-fact">
+          <div class="key-number">1.7-2.2 ans</div>
+          <p>Retour sur investissement</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="key-fact">
+          <div class="key-number">1040%</div>
+          <p>ROI annuel après 2 ans</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="key-fact">
+          <div class="key-number">34k€/an</div>
+          <p>Revenus par tour (3 clients)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <h3>💡 POURQUOI INVESTIR DANS TOWERCO MAINTENANT ?</h3>
+      <ul>
+        <li>
+          <strong>Marché sous-exploité</strong> : Seulement 15% de couverture 4G
+          dans les zones ciblées
+        </li>
+        <li>
+          <strong>Demande explosive</strong> : Croissance de 300% du trafic
+          mobile prévue d'ici 2028
+        </li>
+        <li>
+          <strong>Modèle éprouvé</strong> : Les TowerCo génèrent des EBITDA
+          margin de 60-70% dans les pays émergents
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Opportunité d'Investissement Exclusive</h2>
+
+      <h3 class="mt-4">🚀 Phase Pilote (400k€)</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <ul>
+            <li>
+              <strong>5 tours haut débit</strong> positionnées stratégiquement
+            </li>
+            <li>
+              <strong>3 clients garantis</strong> par tour (contrats pré-signés)
+            </li>
+            <li><strong>Valorisation</strong> : 1,33 M€ (30% pour 400k€)</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div class="profit-badge">
+            PROFIT ANNUEL PROJECTÉ : 156k€ dès l'année 2
+          </div>
+          <p>
+            Scalabilité immédiate : chaque tour supplémentaire génère ~34k€ de
+            revenus annuels
+          </p>
+        </div>
+      </div>
+
+      <h3 class="mt-5">🌍 Phase Expansion (1M€)</h3>
+      <ul>
+        <li>Déploiement de <strong>10 tours supplémentaires</strong></li>
+        <li>Valorisation à 3,33 M€ (30% pour 1M€)</li>
+        <li>Revenus annuels projetés : 510k€ avec 15 tours</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Détails Financiers</h2>
+      <h3 class="mt-4">📊 Projection sur 5 Tours (Phase Pilote)</h3>
+      <table class="table table-dark table-bordered">
+        <thead>
+          <tr>
+            <th>Année</th>
+            <th>Revenus</th>
+            <th>Dépenses</th>
+            <th>Profit</th>
+            <th>ROI Cumulé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>171 000 €</td>
+            <td>315 000 €</td>
+            <td>-144 000 €</td>
+            <td>-46%</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>171 000 €</td>
+            <td>15 000 €</td>
+            <td>+156 000 €</td>
+            <td>+1 040%</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>171 000 €</td>
+            <td>15 000 €</td>
+            <td>+156 000 €</td>
+            <td>+2 080%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight mt-4">
+        <h4>🔥 Avantages Fiscaux Exceptionnels :</h4>
+        <p>
+          Nos tours étant considérées comme des infrastructures d'intérêt
+          public, elles bénéficient :
+        </p>
+        <ul>
+          <li>Exonération fiscale pendant 5 ans à Madagascar et aux Comores</li>
+          <li>TVA réduite à 5% sur les équipements télécoms</li>
+          <li>Déduction intégrale des investissements la première année</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>📩 Intéressé par cette opportunité exclusive ?</h2>
+      <p>
+        Nous réservons cette offre à 5 investisseurs maximum pour la phase
+        pilote.
+      </p>
+      <a href="#" class="cta-button">DEMANDER UN ENTRETIEN PRIVÉ</a>
+      <p class="mt-2">
+        <small>Prochaine réunion d'investisseurs : 15 novembre 2025</small>
+      </p>
+    </div>
+
+    <script>
+      // Configuration du graphique
+      const ctx = document.getElementById("financialChart").getContext("2d");
+      const financialChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Année 1", "Année 2", "Année 3", "Année 4", "Année 5"],
+          datasets: [
+            {
+              label: "Revenus (k€)",
+              data: [171, 342, 513, 684, 855],
+              backgroundColor: "rgba(255, 215, 0, 0.7)",
+              borderColor: "rgba(255, 215, 0, 1)",
+              borderWidth: 2,
+              yAxisID: "y",
+            },
+            {
+              label: "Bénéfices (k€)",
+              data: [-144, 156, 312, 468, 624],
+              backgroundColor: "rgba(40, 167, 69, 0.7)",
+              borderColor: "rgba(40, 167, 69, 1)",
+              borderWidth: 2,
+              yAxisID: "y",
+            },
+            {
+              label: "ROI Cumulé (%)",
+              data: [-46, 1040, 2080, 3120, 4160],
+              backgroundColor: "rgba(0, 123, 255, 0.7)",
+              borderColor: "rgba(0, 123, 255, 1)",
+              borderWidth: 2,
+              type: "line",
+              yAxisID: "y1",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "PROJECTION FINANCIÈRE - 5 TOURS TOWERCO",
+              font: {
+                size: 18,
+                family: "Montserrat",
+                weight: "bold",
+              },
+              color: "#ffd700",
+            },
+            legend: {
+              labels: {
+                font: {
+                  family: "Montserrat",
+                  size: 14,
+                },
+                color: "#f1f1f1",
+              },
+            },
+            tooltip: {
+              bodyFont: {
+                family: "Montserrat",
+                size: 14,
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#f1f1f1",
+                font: {
+                  family: "Montserrat",
+                  size: 14,
+                },
+              },
+              grid: {
+                color: "rgba(241, 241, 241, 0.1)",
+              },
+            },
+            y: {
+              position: "left",
+              ticks: {
+                color: "#f1f1f1",
+                font: {
+                  family: "Montserrat",
+                  size: 14,
+                },
+                callback: function (value) {
+                  return value + "k€";
+                },
+              },
+              grid: {
+                color: "rgba(241, 241, 241, 0.1)",
+              },
+            },
+            y1: {
+              position: "right",
+              ticks: {
+                color: "#f1f1f1",
+                font: {
+                  family: "Montserrat",
+                  size: 14,
+                },
+                callback: function (value) {
+                  return value + "%";
+                },
+              },
+              grid: {
+                drawOnChartArea: false,
+              },
+            },
+          },
+        },
+      });
+    </script>
+
+    <footer>
+      © 2025 TowerCo | Opportunité d'investissement confidentielle |
+      <a href="#" style="color: #aaa">Documents légaux</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
